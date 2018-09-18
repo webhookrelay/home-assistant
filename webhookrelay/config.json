@@ -1,6 +1,6 @@
 {
     "name": "Webhook Relay",
-    "version": "1",
+    "version": "1.0.0",
     "slug": "webhook-relay",
     "description": "Receive webhooks without public IP or configuring NAT. Register account here: https://my.webhookrelay.com/register.",
     "url": "https://webhookrelay.com",    
