@@ -8,7 +8,7 @@ Reverse tunnels for your Home Assistant.
 
 
 <p align="center">
-    <a href="https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant" target="_blank"><img width="100"src="https://webhookrelay.com/images/hassio-addon.jpeg"></a>
+    <a href="https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant" target="_blank"><img src="https://webhookrelay.com/images/hassio-addon.jpeg"></a>
 </p>
 
 # About
