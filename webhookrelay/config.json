@@ -1,6 +1,6 @@
 {
     "name": "Webhook Relay",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "slug": "webhook-relay",
     "description": "Receive webhooks without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
@@ -14,13 +14,38 @@
     "options": {
         "key": "",
         "secret": "",
-        "bucket": "HA",
-        "tunnels": ""
+        "forwarding": [
+            {
+                "bucket": "ha",
+                "destination": "http://localhost:8123"
+            }
+        ],
+        "tunnels": [
+            {
+                "name": "HA",
+                "destination": "http://localhost:8123"
+            }              
+        ],
+        "tunnels_enabled": true,
+        "forwarding_enabled": false
+
       },
       "schema": {
         "key": "str",
-        "secret": "str",        
-        "bucket": "str",       
-        "tunnels": "str"       
+        "secret": "str",     
+        "forwarding": [
+            {
+                "bucket": "str",
+                "destination": "url"
+            }
+        ],
+        "tunnels": [
+            {
+                "name": "str",
+                "destination": "url"
+            }
+        ],
+        "tunnels_enabled": "bool",
+        "forwarding_enabled": "bool"
       }   
   }
