@@ -1,6 +1,6 @@
 {
     "name": "Webhook Relay",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "slug": "webhook-relay",
     "description": "Receive webhooks without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
