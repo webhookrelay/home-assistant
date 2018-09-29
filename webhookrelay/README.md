@@ -39,12 +39,12 @@ Detailed instructions on how to set it up can be found here https://webhookrelay
 
 Webhook Relay is a hosted service that requires infrastructure, support and development time. Our business model is providing a service for a fee. We do not share any of your data with 3rd parties (except Stripe for billing purposes). 
 
-Our free plan includes:
+**Our free plan includes:**
 
 * One bidirectional tunnel suitable for remote access, due to the lack of HTTPS we wouldn't recommend using them from unsafe wifi networks.
 * End-to-end encrypted webhooks forwarding (150 webhooks per month)
 
-For most users "basic" plan ($4.50/month) should be enough, it includes:
+For most users **basic** plan (*$4.50/month*) will be enough, it includes:
 
 * Custom subdomains
 * HTTPS for bidirectional tunnel endpoints
