@@ -12,8 +12,8 @@
     ],
     "boot": "auto",
     "options": {
-        "key": "",
-        "secret": "",
+        "key": null,
+        "secret": null,
         "forwarding": [
             {
                 "bucket": "ha",
@@ -23,6 +23,7 @@
         "tunnels": [
             {
                 "name": "HA",
+                "subdomain": "",
                 "destination": "http://localhost:8123"
             }              
         ],
@@ -42,7 +43,7 @@
         "tunnels": [
             {
                 "name": "str",
-                "subdomain": "str",
+                "subdomain": "str?",
                 "destination": "url"
             }
         ],
