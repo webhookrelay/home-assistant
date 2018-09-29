@@ -1,7 +1,8 @@
 {
     "build_from": {        
         "amd64": "webhookrelay/webhookrelayd:latest",
-        "armhf": "webhookrelay/webhookrelayd-arm:latest"        
+        "armhf": "webhookrelay/webhookrelayd-arm:latest",        
+        "aarch64": "webhookrelay/webhookrelayd-aarch64:latest"        
     },
     "args": {}
 }
