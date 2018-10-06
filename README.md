@@ -4,7 +4,7 @@
 
 # Hass.io Add-on: Webhook Relay
 
-Reverse tunnels for your Home Assistant. 
+Secure and fast reverse tunnels for your Home Assistant. 
 
 
 <p align="center">
@@ -41,19 +41,22 @@ Detailed instructions on how to set it up can be found here https://webhookrelay
 
 ## Plans and Pricing
 
-Webhook Relay is a hosted service that requires infrastructure, support and development time. Our business model is providing a service for a fee. We do not share any of your data with 3rd parties (except Stripe for billing purposes). 
+Webhook Relay is a hosted service that requires infrastructure, support and development time. Our business model is providing a service for a fee. We do not share any of your data with 3rd parties (except Stripe for billing purposes).
 
-Our free plan includes:
+**Our free plan includes:**
 
 * One bidirectional tunnel suitable for remote access, due to the lack of HTTPS we wouldn't recommend using them from unsafe wifi networks.
 * End-to-end encrypted webhooks forwarding (150 webhooks per month)
 
-For most users "basic" plan ($4.50/month) should be enough, it includes:
+For most users **basic** plan (*$4.50/month*) will be enough, it includes:
 
 * Custom subdomains
-* HTTPS for bidirectional tunnel endpoints
+* HTTPS for bidirectional tunnel endpoints with TLS termination on Webhook Relay servers (less secure, more convenient)
+* TLS pass-through tunnels for maximum security (make sure your Home Assistant can terminate TLS or supply key & certificate to the agent to do the termination)
 * 3 tunnels (for example Home Assistant, Node-RED and anything else)
 * 1500 webhooks per month
+
+**Basic Plus** plan includes **basic** plan features with an addition on whitelabel domains, such as hass.yourdomain.com.
 
 All plans can be viewed [here](https://webhookrelay.com/pricing/). Alternative ways to earn HTTPS and custom subdomains:
 
@@ -61,7 +64,67 @@ All plans can be viewed [here](https://webhookrelay.com/pricing/). Alternative w
 * Tweet about [@Webhook Relay](https://twitter.com/webhookrelay)
 * Provide useful feedback
 
-## Coming soon
 
-* Custom domains through CNAME DNS entries, such as hass.yourdomain.com
-* TLS pass-through without TLS termination on our side. This will allow Webhook Relay to relay traffic to your Home Assistant without terminating HTTPS. Combined with custom domains this feature will allow to create fully encrypted tunnels so even if we wanted, we couldn't spy on your traffic. It might require a bit more work on your end to setup TLS termination with NGINX or similar tools though. 
+## Configuration examples
+
+TLS pass-through tunnel with Home Assistant decrypting/encrypting traffic and webhook forwarding rule:
+
+```javascript
+{
+	"key": "your-key",
+	"secret": "your-secret",
+	"forwarding": [
+	  {
+		  "bucket": "my-ifttt",
+		  "destination": "https://bin.webhookrelay.com/v1/webhooks/7d509cd1-c9aa-48db-ad4d-6a750ee2ggg"
+	  }
+	],
+	"tunnels": [
+		{
+			"name": "customdomain",                   // optional tunnel name
+			"subdomain": "",                          // optional subdomain
+      "domain": "ha.keel.sh",                   // optional domain (requires whitelisted domains feature)
+			"destination": "https://127.0.0.1:8123",  // Home Assistant address
+			"protocol": "tls",                        // pick between tls/http/https 
+			"cert_file": "",                          // not set, Home Assistant will terminate TLS
+			"key_file": "",			                      // not set, Home Assistant will terminate TLS
+			"auto_gen": false
+
+		}
+	],
+	"tunnels_enabled": true,
+	"forwarding_enabled": true
+}
+
+```
+
+TLS pass-through tunnel with auto-generated, self-signed certificates from the agent. Home Assistant running simple HTTP. Traffic is encrypted end-to-end and only decrypted on localhost:
+
+```javascript
+{
+	"key": "your-key",
+	"secret": "your-secret",
+	"forwarding": [
+	  {
+		  "bucket": "my-ifttt",
+		  "destination": "https://bin.webhookrelay.com/v1/webhooks/7d509cd1-c9aa-48db-ad4d-6a750ee2ggg"
+	  }
+	],
+	"tunnels": [
+		{
+			"name": "customdomain",                   // optional tunnel name
+			"subdomain": "",                          // optional subdomain
+      "domain": "ha.keel.sh",                   // optional domain (requires whitelisted domains feature)
+			"destination": "https://127.0.0.1:8123",  // Home Assistant address
+			"protocol": "tls",                        // pick between tls/http/https 
+			"cert_file": "tls.crt",                   // TLS certificate
+			"key_file": "tls.key",			              // TLS private key
+			"auto_gen": true                          // Auto-generate key & cert if doesn't exist
+
+		}
+	],
+	"tunnels_enabled": true,
+	"forwarding_enabled": true
+}
+
+```
