@@ -5,7 +5,7 @@
     "description": "Receive webhooks without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
     "startup": "application",
-    "host_network": true,
+    "host_network": false,
     "map": ["ssl:rw"],
     "arch": [
         "aarch64", 
@@ -19,16 +19,18 @@
         "forwarding": [
             {
                 "bucket": "ha",
-                "destination": "http://localhost:8123"
+                "destination": "http://hassio:8123"
             }
         ],
         "tunnels": [
             {
                 "name": "HA",
                 "subdomain": "",
-                "protocol": "http",
-                "destination": "http://localhost:8123"
-            }              
+                "protocol": "tls",
+                "destination": "http://hassio:8123",
+                "key_file": "",
+                "cert_file": ""
+            }
         ],
         "tunnels_enabled": false,
         "forwarding_enabled": false
@@ -54,7 +56,7 @@
                 "destination": "url",
                 "auto_gen": "bool?"
             }
-        ],
+        ],    
         "tunnels_enabled": "bool",
         "forwarding_enabled": "bool"
       }   
