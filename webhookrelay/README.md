@@ -48,8 +48,8 @@ Webhook Relay is a hosted service that requires infrastructure, support and deve
 
 ```json
 {
-	"key": "f548f2b3-6f14-4cfc-86aa-59c5392b5821",
-	"secret": "z3ecBlmiG0rg",
+	"key": "your-webhookrelay-key",
+	"secret": "your-webhookrelay-secret",
 	"forwarding": [
 	  {
 		  "bucket": "ha",
@@ -65,7 +65,7 @@ Webhook Relay is a hosted service that requires infrastructure, support and deve
 		}	
 	],
 	"duck_dns": {
-		"token": "YOUR-DUCKDNS-TOKEN",
+		"token": "your-duckdns-token",
 		"accept_terms": true
 	},
 	"tunnels_enabled": true,
