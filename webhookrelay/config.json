@@ -1,8 +1,8 @@
 {
-    "name": "Webhook Relay",
+    "name": "Webhook Relay - Remote Access",
     "version": "2.0.0",
-    "slug": "webhook-relay",
-    "description": "Receive webhooks without public IP or configuring NAT. Account registration required.",
+    "slug": "webhook-relay-remote-access",
+    "description": "Secure remote access without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
     "startup": "application",
     "host_network": true,
@@ -19,13 +19,13 @@
         "forwarding": [
             {
                 "bucket": "ha",
-                "destination": "http://homeassistant:8123"
+                "destination": "http://127.0.0.1:8123"
             }
         ],
         "tunnels": [
             {
                 "name": "autopilot",
-                "destination": "http://homeassistant:8123/",
+                "destination": "http://127.0.0.1:8123/",
                 "protocol": "tls",			
                 "domain": ""			
             }
