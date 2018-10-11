@@ -1,11 +1,11 @@
 {
     "name": "Webhook Relay",
-    "version": "1.3.0",
+    "version": "2.0.0",
     "slug": "webhook-relay",
     "description": "Receive webhooks without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
     "startup": "application",
-    "host_network": false,
+    "host_network": true,
     "map": ["ssl:rw"],
     "arch": [
         "aarch64", 
@@ -19,19 +19,21 @@
         "forwarding": [
             {
                 "bucket": "ha",
-                "destination": "http://hassio:8123"
+                "destination": "http://homeassistant:8123"
             }
         ],
         "tunnels": [
             {
-                "name": "HA",
-                "subdomain": "",
-                "protocol": "tls",
-                "destination": "http://hassio:8123",
-                "key_file": "",
-                "cert_file": ""
+                "name": "autopilot",
+                "destination": "http://homeassistant:8123/",
+                "protocol": "tls",			
+                "domain": ""			
             }
         ],
+        "duck_dns": {
+            "token": null,
+            "accept_terms": false
+        },
         "tunnels_enabled": false,
         "forwarding_enabled": false
 
@@ -57,6 +59,10 @@
                 "auto_gen": "bool?"
             }
         ],    
+        "duck_dns": {
+            "token": "str?",
+            "accept_terms": "bool"
+        },
         "tunnels_enabled": "bool",
         "forwarding_enabled": "bool"
       }   
