@@ -13,8 +13,6 @@ Secure and fast reverse tunnels for your Home Assistant.
 
 # About
 
-Webhook Relay addon enables Home Assistant and any other services running inside internal network to receive webhooks from public services such as [IFTTT](https://ifttt.com), [Zapier](https://zapier.com/), Mailgun or pretty much anything.
-
 Webhook Relay works by opening a connection to the public cloud service and giving you your unique "webhooks inbox" URL or your own subdomain which you can supply to 3rd party services.
 
 Webhook Relay is particularly useful when:
@@ -25,7 +23,7 @@ Webhook Relay is particularly useful when:
 * You don't have a static IP address
 * Server that is hosting your home automation system is changing IP, location
 
-## Quick Start - TLS pass-through tunnel with DuckDNS domain & cert
+## Quick Start - TLS pass-through tunnel
 
 Before starting the add-on:
 
@@ -44,12 +42,19 @@ Installation of this add-on is pretty straightforward and not different in compa
 
 Detailed instructions on how to set it up can be found here https://webhookrelay.com/v1/guide/home-automation.html.
 
+## Plans and Pricing
+
+Webhook Relay is a hosted service that requires infrastructure, support and development time. Our business model is providing a service for a fee. We do not share any of your data with 3rd parties (except Stripe for billing purposes). We recommend several plans:
+
+* **Basic** plan that includes HTTPS and TLS tunnels - $4.5/month
+* **Basic Plus** plan that includes HTTPS, TLS tunnels + whitelabel domains - $9.99/month
+
 ## TLS pass-through config example
 
 ```json
 {
-	"key": "f548f2b3-6f14-4cfc-86aa-59c5392b5821",
-	"secret": "z3ecBlmiG0rg",
+	"key": "your-webhookrelay-key",
+	"secret": "your-webhookrelay-secret",
 	"forwarding": [
 	  {
 		  "bucket": "ha",
@@ -65,17 +70,10 @@ Detailed instructions on how to set it up can be found here https://webhookrelay
 		}	
 	],
 	"duck_dns": {
-		"token": "YOUR-DUCKDNS-TOKEN",
+		"token": "your-duckdns-token",
 		"accept_terms": true
 	},
 	"tunnels_enabled": true,
 	"forwarding_enabled": false
 }
 ```
-
-## Plans and Pricing
-
-Webhook Relay is a hosted service that requires infrastructure, support and development time. Our business model is providing a service for a fee. We do not share any of your data with 3rd parties (except Stripe for billing purposes). We recommend several plans:
-
-* **Basic** plan that includes HTTPS and TLS tunnels - $4.5/month
-* **Basic Plus** plan that includes HTTPS, TLS tunnels + whitelabel domains - $9.99/month
