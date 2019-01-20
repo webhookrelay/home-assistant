@@ -48,24 +48,25 @@ Webhook Relay is a hosted service that requires infrastructure, support and deve
 
 ```json
 {
-	"key": "your-webhookrelay-key",
-	"secret": "your-webhookrelay-secret",
-	"forwarding": [
-	  {
-		  "bucket": "ha",
-		  "destination": "http://127.0.0.1:8123"
-	  }
-	],
+	"key": "[YOUR TOKEN KEY]",
+	"secret": "[YOUR TOKEN SECRET]",
+	"forwarding": [],
 	"tunnels": [
 		{
 			"name": "ha",
-			"destination": "http://homeassistant:8123",
+			"destination": "http://127.0.0.1:8123",
 			"protocol": "tls",			
-			"domain": "your-domain.duckdns.org"			
-		}	
+			"domain": "[YOUR DUCKDNS HA DOMAIN].duckdns.org"			
+		},
+		{
+			"name": "node-red",
+			"destination": "http://127.0.0.1:1880",
+			"protocol": "tls",			
+			"domain": "[YOUR DUCKDNS NODERED DOMAIN].duckdns.org"			
+		}
 	],
 	"duck_dns": {
-		"token": "your-duckdns-token",
+		"token": "[YOUR DUCKDNS TOKEN]",
 		"accept_terms": true
 	},
 	"tunnels_enabled": true,
