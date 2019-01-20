@@ -6,6 +6,24 @@ Secure and fast reverse tunnels for your Home Assistant.
     <a href="https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant" target="_blank"><img src="https://webhookrelay.com/images/hassio-addon.jpeg"></a>
 </p>
 
+# Docker Status
+
+![Supports armhf Architecture][armhf-shield]
+![Supports aarch64 Architecture][aarch64-shield]
+![Supports amd64 Architecture][amd64-shield]
+
+[![Docker Layers][layers-shield]][microbadger]
+[![Docker Pulls][pulls-shield]][dockerhub]
+
+
+[aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
+[amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
+[armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
+[layers-shield]: https://images.microbadger.com/badges/image/webhookrelay/webhookrelayd.svg
+[pulls-shield]: https://img.shields.io/docker/pulls/hassioaddons/jupyterlablite.svg
+[microbadger]: https://microbadger.com/images/webhookrelay/webhookrelay
+[dockerhub]: https://hub.docker.com/r/webhookrelay/webhookrelayd
+
 # About
 
 Webhook Relay works by opening a connection to the public cloud service and giving you your unique "webhooks inbox" URL or your own subdomain which you can supply to 3rd party services.
