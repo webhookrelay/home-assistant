@@ -73,3 +73,5 @@ Webhook Relay is a hosted service that requires infrastructure, support and deve
 	"forwarding_enabled": false
 }
 ```
+
+> Note that IP address for Home Assistant destination `http://127.0.0.1:8123` is used since it's accessing it from the same host.
