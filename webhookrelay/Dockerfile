@@ -11,12 +11,12 @@ ARG BUILD_VERSION
 # Labels
 LABEL \
     io.hass.name="Webhook Relay" \
-    io.hass.description="Receive webhooks without public IP or configuring NAT via your hass.io instance" \
+    io.hass.description="Remote access without public IP or configuring router to your hass.io instance" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="Karolis Rusenas <karolis@webhookrelay.com>" \
-    org.label-schema.description="Receive webhooks without public IP or configuring NAT via your hass.io instance" \
+    org.label-schema.description="Remote access without public IP or configuring router to your hass.io instance" \
     org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.name="Webhook-Relay" \
     org.label-schema.schema-version="1.0" \

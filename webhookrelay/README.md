@@ -41,8 +41,8 @@ Detailed instructions on how to set it up can be found here https://webhookrelay
 
 Webhook Relay is a hosted service that requires infrastructure, support and development time. Our business model is providing a service for a fee. We do not share any of your data with 3rd parties (except Stripe for billing purposes). We recommend several plans:
 
+* **Free** plan includes 150 webhooks per month and one HTTP tunnel
 * **Basic** plan that includes HTTPS and TLS tunnels - $4.5/month
-* **Basic Plus** plan that includes HTTPS, TLS tunnels + whitelabel domains - $9.99/month
 
 ## TLS pass-through config example
 
