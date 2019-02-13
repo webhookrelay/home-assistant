@@ -34,6 +34,10 @@
             "token": null,
             "accept_terms": false
         },
+        "cloudflare": {
+            "email": null,
+            "api_key": null
+        },
         "tunnels_enabled": false,
         "forwarding_enabled": false
 
@@ -53,6 +57,7 @@
                 "protocol": "str",
                 "subdomain": "str?",
                 "domain": "str?",
+                "provider": "str?",
                 "key_file": "str?",
                 "cert_file": "str?",                
                 "destination": "url",
@@ -62,6 +67,10 @@
         "duck_dns": {
             "token": "str?",
             "accept_terms": "bool"
+        },
+        "cloudflare": {
+            "email": "str?",
+            "api_key": "str?"
         },
         "tunnels_enabled": "bool",
         "forwarding_enabled": "bool"
