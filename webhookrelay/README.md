@@ -24,6 +24,8 @@ Secure and fast reverse tunnels for your Home Assistant.
 [microbadger]: https://microbadger.com/images/webhookrelay/webhookrelay
 [dockerhub]: https://hub.docker.com/r/webhookrelay/webhookrelayd
 
+Using `webhookrelayd` version `1.9.0`
+
 # About
 
 Webhook Relay works by opening a connection to the public cloud service and giving you your unique "webhooks inbox" URL or your own domain/subdomain which you can supply to 3rd party services.
@@ -55,4 +57,27 @@ Most issues can be solved following the [installation](https://webhookrelay.com/
 
 If you can't resolve your issue, contact as at info@webhookrelay.com
 
-## NEW in 2.2.0 version
+## New in 2.2.0 version
+
+We have added [Cloudflare](https://www.cloudflare.com/) integration to provide secure TLS pass-through tunnels for any domains (not just DuckDNS anymore). You can transfer your domain management to Cloudflare (it's free) and then use this add-on to create tunnels and automatically configure HTTPS. To start using Cloudflare, set `provider` field in the tunnel:
+
+```json
+"tunnels": [
+		{
+			"name": "cf-domain", 
+			"destination": "http://127.0.0.1:8123",
+			"protocol": "tls",			
+			"domain": "ha.example.com",
+			"provider": "cloudflare"
+        }        
+	],
+```
+
+And add Cloudflare email and API key:
+
+```json
+	"cloudflare": {
+		"email": "your-email@example.com",
+		"api_key": "your-token"
+	},
+```
