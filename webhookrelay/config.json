@@ -1,6 +1,6 @@
 {
     "name": "Webhook Relay - Remote Access",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "slug": "webhook-relay-remote-access",
     "description": "Secure remote access without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
@@ -27,16 +27,19 @@
                 "name": "home-assistant",
                 "destination": "http://127.0.0.1:8123/",
                 "protocol": "tls",			
-                "domain": ""			
+                "domain": "example.duckdns.org"			
             }
         ],
         "duck_dns": {
             "token": null,
             "accept_terms": false
         },
+        "cloudflare": {
+            "email": null,
+            "api_key": null
+        },
         "tunnels_enabled": false,
         "forwarding_enabled": false
-
       },
       "schema": {
         "key": "str",
@@ -53,6 +56,7 @@
                 "protocol": "str",
                 "subdomain": "str?",
                 "domain": "str?",
+                "provider": "str?",
                 "key_file": "str?",
                 "cert_file": "str?",                
                 "destination": "url",
@@ -62,6 +66,10 @@
         "duck_dns": {
             "token": "str?",
             "accept_terms": "bool"
+        },
+        "cloudflare": {
+            "email": "str?",
+            "api_key": "str?"
         },
         "tunnels_enabled": "bool",
         "forwarding_enabled": "bool"
