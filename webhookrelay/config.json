@@ -1,6 +1,6 @@
 {
-    "name": "Webhook Relay - Remote Access",
-    "version": "2.3.0",
+    "name": "Webhook Relay - Remote Access (edge)",
+    "version": "2.4.0",
     "slug": "webhook-relay-remote-access",
     "description": "Secure remote access without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
@@ -17,6 +17,7 @@
     "options": {
         "key": null,
         "secret": null,
+        "region": "",
         "forwarding": [
             {
                 "bucket": "ha",
@@ -45,6 +46,7 @@
       "schema": {
         "key": "str",
         "secret": "str",     
+        "region": "str?",     
         "forwarding": [
             {
                 "bucket": "str",
