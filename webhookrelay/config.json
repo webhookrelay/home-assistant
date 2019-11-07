@@ -1,6 +1,6 @@
 {
     "name": "Webhook Relay - Remote Access",
-    "version": "2.4.2",
+    "version": "2.4.3",
     "slug": "webhookrelay",
     "description": "Secure remote access without public IP or configuring NAT. Account registration required.",
     "url": "https://webhookrelay.com/v1/guide/home-automation.html#Home-Assistant",    
